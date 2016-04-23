@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyersDiff", "MyersDiff\MyersDiff.csproj", "{B551BC49-2654-4884-BAB6-7514DBA175D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyersDiffTest", "MyersDiffTest\MyersDiffTest.csproj", "{0A50B87B-A11D-429C-A380-A3C6C07F196D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSource", "StringSource\StringSource.csproj", "{8114B43A-C412-4E6A-B8AA-EB4D903181ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B551BC49-2654-4884-BAB6-7514DBA175D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B551BC49-2654-4884-BAB6-7514DBA175D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B551BC49-2654-4884-BAB6-7514DBA175D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A50B87B-A11D-429C-A380-A3C6C07F196D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A50B87B-A11D-429C-A380-A3C6C07F196D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A50B87B-A11D-429C-A380-A3C6C07F196D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A50B87B-A11D-429C-A380-A3C6C07F196D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8114B43A-C412-4E6A-B8AA-EB4D903181ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8114B43A-C412-4E6A-B8AA-EB4D903181ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8114B43A-C412-4E6A-B8AA-EB4D903181ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8114B43A-C412-4E6A-B8AA-EB4D903181ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
