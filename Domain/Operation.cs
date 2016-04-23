@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿using System;
+
+namespace Domain
 {
     /// <summary>
     /// Тип операции
@@ -34,7 +36,7 @@
         /// <summary>
         /// Позиция операции в источнике
         /// </summary>
-        public long Index { get; private set; }
+        public long Index { get; }
 
         /// <summary>
         /// Признак того, что данная операция — конфликт.
@@ -44,12 +46,12 @@
         /// <summary>
         /// Тип операции
         /// </summary>
-        public OperationKind Kind { get; private set; }
+        public OperationKind Kind { get; }
 
         /// <summary>
         /// Источник, из которого взята операция
         /// </summary>
-        public ISource Source { get; private set; }
+        public ISource Source { get; }
 
         public Operation(OperationKind kind, long index, ISource source)
         {
@@ -57,6 +59,38 @@
             this.Index = index;
             this.Source = source;
             this.IsConflict = false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var op = obj as Operation;
+            if (op == null) return false;
+            return op.Kind == this.Kind &&
+                   op.Index == this.Index &&
+                   op.IsConflict == this.IsConflict &&
+                   op.Source == this.Source;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = this.Index.GetHashCode();
+                hashCode = (hashCode * 397) ^ this.IsConflict.GetHashCode();
+                hashCode = (hashCode * 397) ^ (int)this.Kind;
+                hashCode = (hashCode * 397) ^ (this.Source?.GetHashCode() ?? 0);
+                return hashCode;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{(this.IsConflict ? "! " : string.Empty)}{this.Kind} Index: {this.Index} Source: {this.Source}";
+        }
+
+        protected bool Equals(Operation other)
+        {
+            return this.Index == other.Index && this.IsConflict == other.IsConflict && this.Kind == other.Kind && ReferenceEquals(this.Source, other.Source);
         }
     }
 }

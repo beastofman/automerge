@@ -119,7 +119,7 @@ namespace MyersDiff
                 p.X = snake.Start.X;
                 p.Y = snake.Start.Y;
             }
-
+            snakes.Reverse();
             return SnakesToOperations(a, b, snakes);
         }
 

@@ -53,6 +53,20 @@
     <Compile Include="MyersDiffUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{f955ef56-6b2d-4c0c-9d63-7d98314ab106}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyersDiff\MyersDiff.csproj">
+      <Project>{B551BC49-2654-4884-BAB6-7514DBA175D8}</Project>
+      <Name>MyersDiff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sources.String\Sources.String.csproj">
+      <Project>{A747FC6C-D056-4DAE-AC2D-697B7439A591}</Project>
+      <Name>Sources.String</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
