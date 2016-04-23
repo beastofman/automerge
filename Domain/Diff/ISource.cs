@@ -10,13 +10,13 @@ namespace Domain
         /// <summary>
         /// Общее количество элементов в источнике
         /// </summary>
-        long Length { get; }
+        int Length { get; }
 
         /// <summary>
         /// Элемент источника для сравнения
         /// </summary>
         /// <param name="index">Индекс элемента</param>
         /// <returns>IComparable для сравнения с другим элементом</returns>
-        IComparable this[long index] { get; }
+        IComparable this[int index] { get; }
     }
 }

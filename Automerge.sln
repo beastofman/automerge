@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyersDiffTest", "MyersDiffT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sources.String", "Sources.String\Sources.String.csproj", "{A747FC6C-D056-4DAE-AC2D-697B7439A591}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sources.TextFile", "Sources.TextFile\Sources.TextFile.csproj", "{0EACB3F8-11A5-439E-8D48-DCEDAC612D38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A747FC6C-D056-4DAE-AC2D-697B7439A591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A747FC6C-D056-4DAE-AC2D-697B7439A591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A747FC6C-D056-4DAE-AC2D-697B7439A591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EACB3F8-11A5-439E-8D48-DCEDAC612D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EACB3F8-11A5-439E-8D48-DCEDAC612D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EACB3F8-11A5-439E-8D48-DCEDAC612D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EACB3F8-11A5-439E-8D48-DCEDAC612D38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
