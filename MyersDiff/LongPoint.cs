@@ -1,16 +1,16 @@
 ﻿namespace MyersDiff
 {
-    internal sealed class LongPoint
+    internal sealed class intPoint
     {
-        public long X { get; set; }
-        public long Y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public LongPoint()
+        public intPoint()
         {
             this.X = this.Y = 0;
         }
 
-        public LongPoint(long x, long y)
+        public intPoint(int x, int y)
         {
             this.X = x;
             this.Y = y;

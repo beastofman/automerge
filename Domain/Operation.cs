@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Domain
+﻿namespace Domain
 {
     /// <summary>
     /// Тип операции
@@ -36,7 +34,7 @@ namespace Domain
         /// <summary>
         /// Позиция операции в источнике
         /// </summary>
-        public long Index { get; }
+        public int Index { get; }
 
         /// <summary>
         /// Признак того, что данная операция — конфликт.
@@ -53,12 +51,12 @@ namespace Domain
         /// </summary>
         public ISource Source { get; }
 
-        public Operation(OperationKind kind, long index, ISource source)
+        public Operation(OperationKind kind, int index, ISource source, bool isConflict = false)
         {
             this.Kind = kind;
             this.Index = index;
             this.Source = source;
-            this.IsConflict = false;
+            this.IsConflict = isConflict;
         }
 
         public override bool Equals(object obj)

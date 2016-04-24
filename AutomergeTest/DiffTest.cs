@@ -5,10 +5,10 @@ using Sources.String;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyersDiffTest
+namespace AutomergeTest
 {
     [TestClass]
-    public class MyersDiffUnitTest
+    public class DiffTest
     {
         private readonly MyersDiffEngine m_diffEngine = new MyersDiffEngine();
 

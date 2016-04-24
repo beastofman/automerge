@@ -9,20 +9,20 @@ namespace MyersDiff
     /// </summary>
     internal sealed class VArray
     {
-        private long[] m_array;
-        private long m_max;
+        private int[] m_array;
+        private int m_max;
 
-        public VArray(long n, long m)
+        public VArray(int n, int m)
         {
             this.m_max = n + m;
-            this.m_array = new long[this.m_max * 2 + 1];
+            this.m_array = new int[this.m_max * 2 + 1];
         }
 
         private VArray()
         {
         }
 
-        public long this[long k]
+        public int this[int k]
         {
             get { return this.m_array[k + this.m_max]; }
             set { this.m_array[k + this.m_max] = value; }
@@ -34,7 +34,7 @@ namespace MyersDiff
             var v = new VArray
             {
                 m_max = d,
-                m_array = new long[2 * d + 1]
+                m_array = new int[2 * d + 1]
             };
 
             if (d <= this.m_max)
@@ -50,7 +50,7 @@ namespace MyersDiff
             return $"V [-{this.m_max}..{this.m_max}]";
         }
 
-        public long Y(long k)
+        public int Y(int k)
         {
             return this[k] - k;
         }

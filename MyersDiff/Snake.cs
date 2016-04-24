@@ -11,12 +11,12 @@ namespace MyersDiff
         /// <summary>
         /// D - число операций удаления или вставки для этой змейки
         /// </summary>
-        public long D { get; }
+        public int D { get; }
 
         /// <summary>
         /// Количество шагов по диагонали в текущей змейке
         /// </summary>
-        public long Diagonals { get; }
+        public int Diagonals { get; }
 
         /// <summary>
         /// Элемент, относительно которого начинается змейка
@@ -26,7 +26,7 @@ namespace MyersDiff
         /// <summary>
         /// Координаты, где оканчивается змейка
         /// </summary>
-        public LongPoint End { get; }
+        public intPoint End { get; }
 
         /// <summary>
         /// Тип операции
@@ -36,14 +36,14 @@ namespace MyersDiff
         /// <summary>
         /// Координаты, откуда начинается змейка
         /// </summary>
-        public LongPoint Start { get; }
+        public intPoint Start { get; }
 
-        public Snake(OperationKind operationKind, long xStart, long yStart, long xEnd, long yEnd, long d, long diagonals, IComparable element)
+        public Snake(OperationKind operationKind, int xStart, int yStart, int xEnd, int yEnd, int d, int diagonals, IComparable element)
         {
             this.Element = element;
             this.OperationKind = operationKind;
-            this.End = new LongPoint(xEnd, yEnd);
-            this.Start = new LongPoint(xStart, yStart);
+            this.End = new intPoint(xEnd, yEnd);
+            this.Start = new intPoint(xStart, yStart);
             this.Diagonals = diagonals;
             this.D = d;
         }
@@ -59,7 +59,7 @@ namespace MyersDiff
         /// <param name="b">Источник с изменениями</param>
         /// <param name="m">Длина источника с изменениями</param>
         /// <returns></returns>
-        public static Snake CalculateSnake(VArray v, long k, long d, ISource a, long n, ISource b, long m)
+        public static Snake CalculateSnake(VArray v, int k, int d, ISource a, int n, ISource b, int m)
         {
             var down = (k == -d || (k != d && v[k - 1] < v[k + 1]));
 

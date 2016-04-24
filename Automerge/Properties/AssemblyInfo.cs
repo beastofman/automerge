@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MyersDiffTest")]
+[assembly: AssemblyTitle("Automerge")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MyersDiffTest")]
+[assembly: AssemblyProduct("Automerge")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0a50b87b-a11d-429c-a380-a3c6c07f196d")]
+[assembly: Guid("b43ded3e-5aab-4620-82e3-7b6ea44ac925")]
 
 // Version information for an assembly consists of the following four values:
 //

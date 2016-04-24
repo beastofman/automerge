@@ -25,6 +25,10 @@ namespace Domain
             this.ConflictOperationsResolveStrategies = new Dictionary<OperationKind, ResolveStrategy>();
         }
 
+        public MergeEngine(ResolveStrategyAction action, bool markAsConflict) : this(new ResolveStrategy(action, markAsConflict))
+        {
+        }
+
         /// <summary>
         /// Получение итогового списка операций
         /// </summary>
