@@ -12,20 +12,20 @@ namespace Automerge
     internal class Program
     {
         /*
-         * -string -myers "abc" "abe" "abd"
+         * -string "abc" "abe" "abd"
          * Параметры командной строки для вывода изменения в двух строках на экран
          */
 
         /*
-         * -string -myers "abc" "abe" "abd" "out.txt"
+         * -string "abc" "abe" "abd" "out.txt"
          * Параметры командной строки для вывода изменения в двух строках в файл out.txt
          */
         /*
-         * -file -myers "Source.txt" "Target1.txt" "Target2.txt" "out.txt"
+         * -file "Source.txt" "Target1.txt" "Target2.txt" "out.txt"
          * Параметры командной строки для вывода изменения в двух текстовых файлах в файл out.txt
          */
         /*
-         * -file -myers "Source.txt" "Target1.txt" "Target2.txt"
+         * -file "Source.txt" "Target1.txt" "Target2.txt"
          * Параметры командной строки для вывода изменения в двух текстовых файлах на экран
          */
 
@@ -38,7 +38,7 @@ namespace Automerge
         {
             if (args == null ||
                 args.Length == 0 ||
-                (args.Length != 5 && args.Length != 6) ||
+                (args.Length != 4 && args.Length != 5) ||
                 args.Any(string.IsNullOrEmpty))
             {
                 PrintUsage();
@@ -51,7 +51,7 @@ namespace Automerge
                 PrintUsage();
                 return;
             }
-            var outToConsole = args.Length == 5;
+            var outToConsole = args.Length == 4;
             ISource source = null,
                     target1 = null,
                     target2 = null;
@@ -59,17 +59,17 @@ namespace Automerge
             switch (Array.IndexOf(m_operations, operation))
             {
                 case 0:
-                    source = new StringSource(args[2]);
-                    target1 = new StringSource(args[3]);
-                    target2 = new StringSource(args[4]);
+                    source = new StringSource(args[1]);
+                    target1 = new StringSource(args[2]);
+                    target2 = new StringSource(args[3]);
                     break;
 
                 case 1:
                     try
                     {
-                        source = new TextFileSource(args[2]);
-                        target1 = new TextFileSource(args[3]);
-                        target2 = new TextFileSource(args[4]);
+                        source = new TextFileSource(args[1]);
+                        target1 = new TextFileSource(args[2]);
+                        target2 = new TextFileSource(args[3]);
                     }
                     catch (Exception ex)
                     {
@@ -85,7 +85,6 @@ namespace Automerge
                     PrintUsage();
                     break;
             }
-            //todo: переписать с использованием Castle.Windsor и резолвить движок по параметру engine
             var diffEngine = new MyersDiffEngine();
             var operations1 = diffEngine.GetDiff(source, target1);
             var operations2 = diffEngine.GetDiff(source, target2);
@@ -105,7 +104,7 @@ namespace Automerge
                     case OperationKind.Insert:
                     default:
 
-                        sb.AppendFormat("{0}{1}", op.IsConflict ? "Конфликт! > " : string.Empty, op.Source[op.Index]);
+                        sb.AppendFormat("{0}{1}", op.IsConflict ? " Конфликт! >" : string.Empty, op.Source[op.Index]);
                         break;
 
                     case OperationKind.Unknown:
@@ -123,12 +122,12 @@ namespace Automerge
             {
                 try
                 {
-                    using (var wrtr = new StreamWriter(args[5]))
+                    using (var wrtr = new StreamWriter(args[4]))
                     {
                         wrtr.Write(sb.ToString());
                         wrtr.Close();
                     }
-                    Console.WriteLine("Изменения записаны в файл {0}", args[5]);
+                    Console.WriteLine("Изменения записаны в файл {0}", args[4]);
                 }
                 catch (Exception ex)
                 {
@@ -150,13 +149,10 @@ namespace Automerge
                           "{0}и автоматическое применение изменений" +
                           "{0}с выводом результата в текстовый файл или на экран консоли." +
                           "{0}{0}Инструкция по использованию:" +
-                          "{0}{0}automerge -<sourcetype> -<engine> <source> <target1> <target2>" +
-                          "{0}automerge -<sourcetype> -<engine> <source> <target1> <target2> <outfilename>" +
+                          "{0}{0}automerge -<sourcetype> <source> <target1> <target2>" +
+                          "{0}automerge -<sourcetype> <source> <target1> <target2> <outfilename>" +
                           "{0}{0}\t-<sourcetype> — тип источника для сравнения: file - текстовый файл, string - строка" +
-                          "{0}\t-<engine> — тип diff-движка",
-                          Environment.NewLine);
-
-            Console.Write("{0}{0}\t<source> — эталон, строка или имя файла" +
+                          "{0}{0}\t<source> — эталон, строка или имя файла" +
                           "{0}\t<target1> — первый элемент с изменениями, строка или имя файла" +
                           "{0}\t<target2> — второй элемент с изменениями, строка или имя файла" +
                           "{0}{0}\t<outfilename> — имя файла, в который будут записаны изменения." +
