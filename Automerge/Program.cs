@@ -161,7 +161,6 @@ namespace Automerge
                           "{0}\tВывод на экран этой инструкции"
                           , Environment.NewLine);
             Console.ReadLine();
-            return;
         }
     }
 }
